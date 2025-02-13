@@ -108,7 +108,7 @@ const App = () => {
                         if(col === undefined)
                             grid[i][j] = { state: "empty", value: undefined, highlight: false };
 
-                        let color = "skyblue";
+                        let color = "rgb(121 195 218)";
                         let fontColor = "black";
                         if (grid[i][j].state === "invalid")
                             color = "lightcoral";
