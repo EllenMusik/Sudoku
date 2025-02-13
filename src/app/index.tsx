@@ -15,17 +15,22 @@ const App = () => {
 
     function inputChange(e:any, i:number, j:number){
         grid[i][j].state = "empty";
-        grid[i][j].value = undefined;
-        if(isNaN(e.target.value))
-            e.target.value = "";
+        if (!isNaN(e.target.value[e.target.value.length - 1]))
+            e.target.value =  e.target.value[e.target.value.length - 1];
+        if(isNaN(e.target.value)) //checks if its not a number
+        {
+            if (!grid[i][j].value)
+                e.target.value = "";
+            else
+                e.target.value = grid[i][j].value;
+        }
         else if(e.target.value < 1)
             e.target.value = "";
-        else {
+        else
+        {
             grid[i][j].value = parseInt(e.target.value);
-            setGrid(grid);
+            highlightNumbers(e, i, j);
         }
-        highlightNumbers(e, i, j);
-        setGrid(grid);
     }
 
 
@@ -47,6 +52,8 @@ const App = () => {
     };
 
     function highlightNumbers (e:any, i:number, j:number) {
+        if (!grid[i][j].value)
+            return;
         let value = grid[i][j].value;
         for (let row = 0; row < 9; row++)
         {
@@ -59,11 +66,9 @@ const App = () => {
             }
         }
         setGrid(grid);
-        console.log(grid);
     }
 
-    const test = () => {
-        console.log(difficulty);
+    const makeSodoku = () => {
         generateSodoku(grid, difficulty, setGrid);
     }
 
@@ -79,8 +84,8 @@ const App = () => {
                 <option value="57">Hard</option>
                 <option value="65">Expert</option>
             </select></label>
-            {/* <br></br> */}
-            <button onClick={test}>Random</button><br></br>
+            <br></br>
+            <button onClick={makeSodoku}>Random</button><br></br><br></br>
 
             <div className="gridConatiner"> 
                 {Array.from({ length: 9 }, (_, i) => 
@@ -125,7 +130,7 @@ const App = () => {
                                 onChange={(e) => inputChange(e,i,j)}
                                 onClick={(e) => highlightNumbers(e,i,j)}
                                 value={grid[i][j].value || ""} 
-                                maxLength={1} 
+                                maxLength={2} 
                                 type="text" 
                                 className="sodokuField" 
                                 style={{backgroundColor: color, color: fontColor, borderLeft, borderTop, borderBottom, borderRight}}

@@ -11,11 +11,34 @@
     display: grid;
     grid-template-columns: repeat(9, 0fr);
     grid-template-rows: repeat(9, 0fr);
+
     width: 455px;
     height: 455px;
     justify-content: center;
     align-content: center;
     background-color: black;
+}
+
+@media screen and (max-width: 500px) {
+    .gridConatiner{
+        width: 365px;
+        height: 365px;
+    }
+    .sodokuField{
+        width: 40px !important;
+        height: 40px !important;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    .gridConatiner{
+        width: 320px;
+        height: 320px;
+    }
+    .sodokuField{
+        width: 35px !important;
+        height: 35px !important;
+    }
 }
 
 .sodokuField{
@@ -32,7 +55,8 @@
 
     user-select: none;
     caret-color: transparent;
-    
+    padding: 0 !important;
+
 }
 
 .sodokuField:focus{
