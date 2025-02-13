@@ -1,0 +1,43 @@
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.gridConatiner{
+    display: grid;
+    grid-template-columns: repeat(9, 0fr);
+    grid-template-rows: repeat(9, 0fr);
+    width: 455px;
+    height: 455px;
+    justify-content: center;
+    align-content: center;
+    background-color: black;
+}
+
+.sodokuField{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    color: black;
+
+    text-align: center;
+    font-size: 30px;
+
+    user-select: none;
+    caret-color: transparent;
+    
+}
+
+.sodokuField:focus{
+    border: 0px solid black !important;
+    outline: 2px solid gold;
+    box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.75);
+    z-index: 5;
+}
