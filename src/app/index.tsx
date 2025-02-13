@@ -9,6 +9,9 @@ export interface box {
     highlight: boolean;
 }
 
+let generating: boolean = false;
+export const updateGenerating = (value:boolean) => generating = value;
+
 const App = () => {
     const [grid, setGrid] = React.useState<box[][]>([]);
     const [difficulty, setDifficulty] = React.useState<number>(40);
@@ -72,7 +75,9 @@ const App = () => {
     }
 
     const makeSodoku = () => {
-        generateSodoku(grid, difficulty, setGrid);
+        console.log("generating = ", generating);
+        if (!generating)
+            generateSodoku(grid, difficulty, setGrid);
     }
 
     function selectDifficulty(e: any) {
@@ -147,6 +152,7 @@ const App = () => {
             </div>
 
             <button onClick={check}>Check!</button> <br></br>
+
         </div>
     );
 };

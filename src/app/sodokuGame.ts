@@ -3,7 +3,7 @@
 //     value: number;
 //     state: "valid" | "invalid" | "empty";
 // }
-import {box} from "./index";
+import {box, updateGenerating} from "./index";
 
 function isValid(row: number, col: number, gridArray: box[][], num: number | undefined) {
 
@@ -83,6 +83,7 @@ function deleteNumbers(amount: number, grid: box[][], setGrid: (box: box[][]) =>
 
 async function generateSodoku(grid: box[][], difficulty: number, setGrid: (box: box[][]) => void)
 {
+    updateGenerating(true);
     for (let row = 0; row < 9; row++) {
         sodoku[row] = [];
         for (let col = 0; col < 9; col++) {
@@ -91,6 +92,7 @@ async function generateSodoku(grid: box[][], difficulty: number, setGrid: (box: 
     }
     await generateSolution(setGrid);
     deleteNumbers(difficulty, sodoku, setGrid);
+    updateGenerating(false);
 }
 
 
