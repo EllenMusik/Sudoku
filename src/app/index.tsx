@@ -30,7 +30,10 @@ const App = () => {
         {
             grid[i][j].value = parseInt(e.target.value);
             highlightNumbers(e, i, j);
+            return;
         }
+        grid[i][j].value = undefined;
+        
     }
 
 
@@ -78,14 +81,17 @@ const App = () => {
 
     return (
         <div className="container">
-            <label> Difficulty: <select onChange={(e) => selectDifficulty(e)} name="difficulty" id="difficulty">
-                <option value="40">Easy</option>
-                <option value="50">Medium</option>
-                <option value="57">Hard</option>
-                <option value="65">Expert</option>
-            </select></label>
-            <br></br>
-            <button onClick={makeSodoku}>Random</button><br></br><br></br>
+            <h1> Sudoku </h1>
+            <label> Difficulty: 
+                <select onChange={(e) => selectDifficulty(e)}>
+                    <option value="40">Easy</option>
+                    <option value="45">Medium</option>
+                    <option value="55">Hard</option>
+                    <option value="60">Expert</option>
+                </select>
+            </label>
+
+            <button onClick={makeSodoku}>Random</button><br></br>
 
             <div className="gridConatiner"> 
                 {Array.from({ length: 9 }, (_, i) => 
@@ -102,11 +108,11 @@ const App = () => {
                         if (grid[i][j].state === "invalid")
                             color = "lightcoral";
                         if (grid[i][j].state === "valid")
-                            color = "seagreen"
+                            color = "rgb(78, 175, 146)"
                         if (grid[i][j].state === "preset")
                             color = "cornflowerblue";
                         if (grid[i][j].highlight)
-                            fontColor = "crimson";
+                            fontColor = "gold";
                                               
                         let borderLeft = "";
                         let borderTop = "";
@@ -114,15 +120,15 @@ const App = () => {
                         let borderRight = "";
                       
                         if((i+1) % 3 === 0){
-                            borderBottom = "2px solid black";
+                            borderBottom = "2px solid rgb(33, 44, 65)";
                         }
                         
                         if((j+1) % 3 === 0){
-                            borderRight = "2px solid black";
+                            borderRight = "2px solid rgb(33, 44, 65)";
                         }
                       
-                        if(i % 3 === 0) borderTop = "2px solid black";
-                        if(j % 3 === 0) borderLeft = "2px solid black";
+                        if(i % 3 === 0) borderTop = "2px solid rgb(33, 44, 65)";
+                        if(j % 3 === 0) borderLeft = "2px solid rgb(33, 44, 65)";
 
                         return (
                             <input
@@ -140,7 +146,7 @@ const App = () => {
                 )}
             </div>
 
-            <button onClick={check}>Check!</button>
+            <button onClick={check}>Check!</button> <br></br>
         </div>
     );
 };

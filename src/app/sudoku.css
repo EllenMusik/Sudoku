@@ -5,6 +5,28 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color: rgb(232, 238, 255);
+}
+
+h1{
+    font-size: 100px;
+    color: cornflowerblue;
+    -webkit-text-stroke-color: rgb(33, 44, 65);
+    -webkit-text-stroke-width: 1px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+
+    background-color: rgb(223, 244, 255);
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    
+    border-radius: 10px;
+    border: 2px solid rgb(53, 79, 127);
+
+    
+    caret-color: transparent;
+    cursor: default;
 }
 
 .gridConatiner{
@@ -16,7 +38,8 @@
     height: 455px;
     justify-content: center;
     align-content: center;
-    background-color: black;
+    background-color: rgb(33, 44, 65);
+    border-radius: 6px;
 }
 
 @media screen and (max-width: 500px) {
@@ -47,8 +70,9 @@
     justify-content: center;
     width: 50px;
     height: 50px;
-    border: 1px solid black;
-    color: black;
+    border: 1px solid rgb(60, 88, 141);
+    color: rgb(33, 44, 65);
+    border-radius: 3px;
 
     text-align: center;
     font-size: 30px;
@@ -60,8 +84,58 @@
 }
 
 .sodokuField:focus{
-    border: 0px solid black !important;
+    border: 0px solid rgb(33, 44, 65) !important;
     outline: 2px solid gold;
-    box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.75);
+    box-shadow: 2px 2px 3px 0px rgb(33, 44, 65);
     z-index: 5;
+}
+
+button {
+    width: 150px;
+    height: 50px;
+    font-size: 23px;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    background-color: transparent;
+    color: cornflowerblue;
+    border: 3px solid cornflowerblue;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: cornflowerblue;
+    color: white;
+}
+
+label {
+    font-size: 20px;
+    color: cornflowerblue;
+    margin-top: 20px;
+}
+
+label select {
+    font-size: 20px;
+    text-align: center;
+    color: cornflowerblue;
+    margin-left: 10px;
+    padding: 10px 15px;
+    background-color: transparent;
+    color: cornflowerblue;
+    border: 1px solid cornflowerblue;
+    border-radius: 5px;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+
+
+}
+
+
+
+label option {
+    font-size: 18px;
+    color: cornflowerblue;
+    padding: 10px 15px;
 }
