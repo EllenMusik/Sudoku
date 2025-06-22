@@ -1,0 +1,173 @@
+.game-container {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+}
+
+.start-container {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+    align-items: center;
+
+}
+
+.gridConatiner{
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(9, 0fr);
+    grid-template-rows: repeat(9, 0fr);
+
+    width: 455px;
+    height: 455px;
+    justify-content: center;
+    align-content: center;
+    background-color: rgb(33, 44, 65);
+    border-radius: 6px;
+}
+
+@media screen and (max-width: 500px) {
+    .gridConatiner{
+        width: 365px;
+        height: 365px;
+    }
+    .sodokuField{
+        width: 40px !important;
+        height: 40px !important;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    .gridConatiner{
+        width: 320px;
+        height: 320px;
+    }
+    .sodokuField{
+        width: 35px !important;
+        height: 35px !important;
+    }
+}
+
+button {
+    margin: 10px;
+
+    font-size: 20px;
+
+
+    align-items: center;
+    justify-content: center;
+
+    background-color: transparent;
+    color: cornflowerblue;
+    border: 3px solid cornflowerblue;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: cornflowerblue;
+    color: rgb(255, 247, 206);;
+}
+
+.sodokuField{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border: 1px solid rgb(60, 88, 141);
+    color: rgb(33, 44, 65);
+    border-radius: 3px;
+
+    text-align: center;
+    font-size: 30px;
+
+    user-select: none;
+    caret-color: transparent;
+    padding: 0 !important;
+
+}
+
+.sodokuField:focus{
+    border: 0px solid rgb(33, 44, 65) !important;
+    outline: 2px solid gold;
+    box-shadow: 2px 2px 3px 0px rgb(33, 44, 65);
+    z-index: 5;
+}
+
+
+.victory-banner{
+    position: absolute;
+    /* top: 50%; */
+    left: 50%;
+    top: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+    background-color: beige;
+    border-radius: 7px;
+    padding: 20px;
+
+    align-items: center;
+}
+
+h2 {
+    padding: 0px;
+    margin: 0;
+}
+
+.number-input {
+    margin-top: 5px;
+}
+
+.basicButton{
+    width: 120px;
+    height: 50px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.startButton{
+    align-self: center;
+    padding-left: 18px;
+    padding-right: 18px;
+    /* width: 90px; */
+    height: 38px;
+}
+
+.numberButton{
+    width: 30px;
+    height: 30px;
+    margin: 7px;
+    background-color: rgb(239, 250, 255);
+}
+
+.numberButton:hover{
+    background-color: cornflowerblue;
+    color: rgb(239, 250, 255);
+}
+
+label {
+    align-self: left;
+    font-size: 20px;
+    color: cornflowerblue;
+    outline-color: transparent;
+    margin-right: 10px;
+}
+
+label select {
+    color: rgb(255, 247, 206);;
+    background-color: cornflowerblue;
+    outline-color: transparent;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+
+.timer {
+    font-size: 20px;
+    color: cornflowerblue;
+}
